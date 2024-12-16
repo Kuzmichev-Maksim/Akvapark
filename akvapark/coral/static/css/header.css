@@ -1,0 +1,65 @@
+header {
+    background-color: #006994;
+    color: white;
+    position: fixed; /* Закрепляем header на экране */
+    top: 0; /* Приклеиваем к верхней части экрана */
+    left: 0; /* Приклеиваем к левому краю экрана */
+    width: 100%; /* Заголовок будет занимать всю ширину экрана */
+    z-index: 1000; /* Устанавливаем высокий индекс, чтобы он был сверху остальных элементов */
+}
+
+/* Общие стили для navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #006994;
+    padding: 20px;
+}
+
+.navbar img.logo {
+    width: 60px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Размещение элементов в строку */
+}
+
+nav ul li {
+    position: relative; /* Для позиционирования текста внутри li */
+    margin-right: 30px; /* Отступ между элементами */
+}
+
+nav ul li a {
+    color: white; /* Цвет иконок */
+    font-size: 24px; /* Размер иконок */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для текста */
+nav ul li a span {
+    color: white;
+    font-size: 14px; /* Размер текста */
+    margin-top: 5px; /* Расстояние между иконкой и текстом */
+}
+
+/* Стили для иконок */
+nav ul li a i {
+    font-size: 30px; /* Увеличиваем размер иконки */
+    transition: color 0.3s; /* Плавное изменение цвета иконки */
+}
+
+nav ul li a:hover i {
+    color: #8cd6f4; /* Цвет иконки при наведении */
+}
+
+nav ul li a:hover {
+    color: #8cd6f4; /* Цвет текста и иконки при наведении */
+}

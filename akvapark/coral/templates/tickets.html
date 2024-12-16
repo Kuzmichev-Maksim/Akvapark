@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Онлайн касса</title>
+
+    <link rel="stylesheet" href="{% static 'css/tickets.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="{% static 'js/tickets.js' %}"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+  </head>
+  <body>
+    <section class="hero-section">
+      <div class="hero-overlay">
+        <div class="logo-and-title">
+          <img src="{% static 'images/logo/circlelogo.png' %}" alt="Логотип" class="logo" />
+          <h1 class="coral">Коралл</h1>
+        </div>
+        <h2 class="title">Онлайн касса</h2>
+      </div>
+    </section>
+
+    <section class="ticket-sale card">
+      <!-- Услуга -->
+      <div class="ticket-service">
+        <label for="service">Услуга</label>
+        
+        <select id="service" name="service" class="custom-select"> 
+          <option value="service1">Аквапарк + термы</option>
+          <option value="service2">Аквапарк + спа</option>
+          <option value="service4">Термы + спа</option>
+          <option value="service3">Аквапарк</option>
+        </select>
+      </div>
+
+      <!-- День -->
+      <div class="ticket-date">
+        <label for="date">День</label>
+        <div class="date-picker">
+            <input type="date" id="date" name="date" />
+        </div>
+    </div>
+
+      <!-- Посетители -->
+      <div class="ticket-visitors">
+        <h3>Посетители</h3>
+
+        <div class="visitor-type">
+          <label>Взрослые (от 150 см)</label>
+          <div class="price-and-quantity">
+            <span class="price">2800 руб.</span>
+            <div class="visitor-quantity">
+              <button class="minus">-</button>
+              <span class="quantity">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="visitor-type">
+          <label>Дети (110-150 см)</label>
+          <div class="price-and-quantity">
+            <span class="price">1500 руб.</span>
+            <div class="visitor-quantity">
+              <button class="minus">-</button>
+              <span class="quantity">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="visitor-type">
+          <label>Малыши (до 110 см)</label>
+          <div class="price-and-quantity">
+            <span class="price">500 руб.</span>
+            <div class="visitor-quantity">
+              <button class="minus">-</button>
+              <span class="quantity">0</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Итоговая цена -->
+      <div class="total-price">
+        <hr />
+        <div class="total-line">
+          <h3>ИТОГО:</h3>
+          <p id="totalPrice">0 РУБ.</p>
+
+        </div>
+        <button class="buy-button">Купить</button>
+      </div>
+    </section>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Аттракционы</title>
+
+    <link rel="stylesheet" href="{% static 'css/attractions.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <!-- Основная секция с аттракционами -->
+    <section class="hero-text">
+        <div class="hero-content">
+            <div class="hero-description">
+                <h1>Аттракционы</h1>
+                <p>Присоединяйтесь к нам и ощутите настоящий драйв на наших захватывающих аттракционах! Независимо от того, любите ли вы высокие скорости или спокойные развлечения — у нас есть что-то для каждого!</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h2>10+</h2>
+                    <p>Захватывающих аттракционов</p>
+                </div>
+                <div class="stat">
+                    <h2>3</h2>
+                    <p>Уникальных тарифа</p>
+                </div>
+                <div class="stat">
+                    <h2>200+</h2>
+                    <p>Счастливых посетителей в день</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="attractions-section">
+        <h2 class="section-title">Аттракционы</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="{% static 'images/attractions/three.jpg' %}" alt="Американские горки">
+                <h3>Американские горки</h3>
+                <p>Поднимитесь на высоту и испытайте невероятный спуск с высокой скоростью!</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/watergork.jpg' %}" alt="Водная петля">
+                <h3>Водная петля</h3>
+                <p>Быстрая горка с крутыми виражами!</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/tobogan.jpg' %}" alt="Тобогган">
+                <h3>Тобогган</h3>
+                <p>Извилистая горка для детей и взрослых.</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/krilo.jpg' %}" alt="Крыло">
+                <h3>Крыло</h3>
+                <p>Открытая горка с крутым углом падения.</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/famaly.jpg' %}" alt="Семейная горка">
+                <h3>Семейная горка</h3>
+                <p>Мягкая водная горка для всей семьи.</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/unitaz.jpg' %}" alt="Космическая тарелка">
+                <h3>Космическая тарелка</h3>
+                <p>Головокружительное вращение и падение в бассейн.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="kids-section">
+        <h2 class="section-title">Детские горки</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="{% static 'images/attractions/korabl.jpg' %}" alt="Заглушка">
+                <h3>Пиратский кораль</h3>
+                <p>Игровой комплекс в виде корабля с горкой, лесенками, трапами и матчтами</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/watermir.jpg' %}" alt="Заглушка">
+                <h3>Подводный мир</h3>
+                <p>Для малышей от полугода. Здесь всё сияет, переливается, брызгается</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/safari.jpg' %}" alt="Заглушка">
+                <h3>Сафари парк</h3>
+                <p>Наши «зверята» и «морские обитатели» развивают воображение, ловкость и координацию</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="spa-section">
+        <h2 class="section-title">Спа</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="{% static 'images/attractions/banya.jpg' %}" alt="Заглушка">
+                <h3>Русская баня</h3>
+                <p>Классическая русская баня с веничным парением</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/hamam.jpg' %}" alt="Заглушка">
+                <h3>Большой хаммам</h3>
+                <p>Умеренное влажное тепло и росскошный интерьер с огромным мраморным столом</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/finskaya.jpg' %}" alt="Заглушка">
+                <h3>Финская сауна</h3>
+                <p>Сухой и горячий воздух финской сауны</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pools-section">
+        <h2 class="section-title">Термы</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="{% static 'images/attractions/termi2.jpg' %}" alt="Горячие источники">
+                <h3>Лабиринт и контрастные бассейны</h3>
+                <p>Двухуровневый бассейн-лабиринт с реверсивным течением и контрастное купание — полезное удовольствие для здоровья тела и духа</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/termi.jpg' %}" alt="Арома-сауна">
+                <h3>Аэрогидромасажный бассейн</h3>
+                <p>Обогащает кожу кислородом, снимает стресс, улучшает самочувствие</p>
+            </div>
+            <div class="feature">
+                <img src="{% static 'images/attractions/knipe.png' %}" alt="Массажные комнаты">
+                <h3>Дорожка Кнайпа</h3>
+                <p>Пройдите по дорожке из ванночек разной температуры от -10 до 40°</p>
+            </div>
+        </div>
+    </section>
+    
+    {% include 'footer.html' %}
+</body>
+</html>

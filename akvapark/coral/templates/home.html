@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Аквапарк Coral</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="{% static 'js/slider.js' %}"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <!-- Слайдер -->
+    <section class="hero-image">
+      <div class="slider-wrapper">
+        <div class="slider">
+          <div class="slide">
+            <img src="{% static 'images/slider/slide.jpg' %}" alt="Аквапарк 1" class="hero-img" />
+          </div>
+          <div class="slide">
+            <img src="{% static 'images/slider/slide1.jpg' %}" alt="Аквапарк 2" class="hero-img" />
+          </div>
+          <div class="slide">
+            <img src="{% static 'images/slider/slide2.jpg' %}" alt="Аквапарк 3" class="hero-img" />
+          </div>
+          <div class="slide">
+            <img src="{% static 'images/slider/slide3.jpg' %}" alt="Аквапарк 4" class="hero-img" />
+          </div>
+          <div class="slide">
+            <img src="{% static 'images/slider/slide4.jpg' %}" alt="Аквапарк 4" class="hero-img" />
+          </div>
+          <div class="slide">
+            <img src="{% static 'images/slider/slide5.jpg' %}" alt="Аквапарк 4" class="hero-img" />
+          </div>
+        </div>
+        <!-- Новый блок с текстом поверх слайдера -->
+        <div class="slider-text">
+          <h1>Коралл</h1>
+          <p>Новый формат отдыха в Москве!</p>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Текст с описанием -->
+    <section class="hero-text">
+      <div class="hero-content">
+        <div class="hero-description">
+          <img src="{% static 'images/logo/circlelogo.png' %}" alt="Аквапарк" class="logo" width="70px" />
+          <h1>Добро пожаловать в лучший аквапарк города!</h1>
+          <p>Аквапарк – это место, где веселье объединяет всех, независимо от возраста!</p>
+          <p>Коралл – самый большой крытый аквапарк в Москве и Московской области, интерьеры которого оформлены в стиле четырехуровнего круизного лайнера.</p>
+          <p>11 водных горок, 3 детские зоны, большой волновой бассейн, теплая голубая лагуна с контрастными душами и гидромассажем, джакузи, большая летняя терраса, уютное кафе с банкетными комнатами и тематические фотозоны, позволяют окунуться в атмосферу курортного отдыха без перелёта.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <h2>11</h2>
+            <p>водных горок</p>
+          </div>
+          <div class="stat">
+            <h2>7500 м²</h2>
+            <p>площадь аквапарка</p>
+          </div>
+          <div class="stat">
+            <h2>3</h2>
+            <p>детские зоны</p>
+          </div>
+          <div class="stat">
+            <h2>1<br />км</h2>
+            <p>общая длина горок</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <img src="{% static 'images/home/attractions.jpg' %}" alt="Водные горки" />
+        <h2>Водные горки</h2>
+        <p>Ощутите адреналин на наших разнообразных горках</p>
+      </div>
+      <div class="feature">
+        <img src="{% static 'images/home/pool.jpg' %}" alt="Бассейны" />
+        <h2>Бассейны</h2>
+        <p>Приятный отдых в наших бассейнах с подогревом</p>
+      </div>
+      <div class="feature">
+        <img src="{% static 'images/home/kids.jpg' %}" alt="Детские зоны" />
+        <h2>Детские зоны</h2>
+        <p>Безопасные и веселые аттракционы для малышей</p>
+      </div>
+    </section>
+
+    <!-- Карта с местоположением -->
+    <section class="location-map">
+      <h2 class="map-heading">Где мы находимся</h2>
+      <p class="map-description">Приходите к нам и ощутите незабываемые эмоции от отдыха в аквапарке «Коралл»!</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.275413227542!2d37.52441907701273!3d55.59722027302706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414aad41eab22f07%3A0xee8a96d35ffca0b0!2z0JrQvtC80L_Qu9C10LrRgSDQnNC-0YDQtdC-0L0!5e0!3m2!1sru!2sru!4v1732822266708!5m2!1sru!2sru" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

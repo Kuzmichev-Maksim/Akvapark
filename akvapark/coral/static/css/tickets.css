@@ -1,0 +1,215 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d6ecef;
+    font-family: cursive;
+}
+
+/* Секция с фото */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url(https://order.more-on.ru/img/background.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Наложение на фото */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.coral {
+    font-size: 4em;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Общий стиль для текста */
+.ticket-sale {
+    font-family: cursive;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовков */
+.ticket-service label,
+.ticket-date label,
+.ticket-visitors h3 {
+    font-weight: bold;
+    color: #22a8cb;
+    font-size: 24px;
+}
+
+/* Выпадающий список услуги */
+select {
+    width: 100%;
+    padding: 5px 20px;
+    height: 55px;
+    border-radius: 40px;
+    font-size: 18px;
+    border: none;
+    background: #aee0e4;
+    color: #003b63;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: cursive;
+    appearance: none;
+}
+select option {
+    padding: 10px;
+    color: #003b63; 
+}
+
+
+/* Стили для выбора даты */
+input[type="date"] {
+    padding: 5px 20px;
+    height: 45px;
+    border-radius: 40px;
+    font-size: 18px;
+    border: none;
+    background: #aee0e4;
+    color: #003b63;
+    width: 92%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+/* Посетители */
+.visitor-type {
+    color: #4d4d4d;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.price-and-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.visitor-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.visitor-quantity .quantity {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        padding: 5px;
+        color: #333;
+}
+
+.visitor-quantity button {
+    width: 40px;
+    height: 40px;
+    background-color: #22a8cb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* Итоговая цена */
+.total-price {
+    margin-top: 20px;
+}
+
+.total-price hr {
+    border: none;
+    border-top: 4px solid #aee0e4 !important;
+    margin-bottom: 10px;
+}
+
+.total-price p {
+    color: #22a8cb;}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #22a8cb;
+}
+
+.total-price h3 {
+    margin: 0;
+    color: #003b63
+}
+
+.discount-links a {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #22a8cb;
+    text-decoration: none;
+}
+
+.discount-links a:hover {
+    text-decoration: underline;
+}
+
+.price{
+    color: #22a8cb;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+.buy-button {
+    display: block;
+    width: 50%;
+    margin: 10px auto 20px auto;
+    padding: 10px;
+    background-color: #22a8cb;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Аккаунт</title>
+    
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{% static 'js/account.js' %}"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <section class="account-page">
+        <h1 class="page-title">Личный кабинет</h1>
+    
+        <!-- Информация о пользователе -->
+        <div class="user-info">
+            <h2>Ваши данные</h2>
+            <div class="user-details">
+                <p><strong>ФИО:</strong> Иванов Иван Иванович</p>
+                <p><strong>Почта:</strong> ivanov@example.com</p>
+                <p><strong>Дата рождения:</strong> 01.01.1990</p>
+            </div>
+        </div>
+
+        <div class="promotion-section">
+            <h2>Акции</h2>
+            <div class="promotion-cards">
+                <!-- Пример карточки акции -->
+                <div class="promotion-card">
+                    <h3 class="promotion-title">Скидка 20% на билеты</h3>
+                    <p class="promotion-description">Получите скидку 20% на все билеты до конца месяца!</p>
+                    <p class="promotion-date">Действует до: 31.12.2024</p>
+                </div>
+                <div class="promotion-card">
+                    <h3 class="promotion-title">Бесплатный вход для детей</h3>
+                    <p class="promotion-description">Дети до 5 лет могут посещать парк бесплатно!</p>
+                    <p class="promotion-date">Действует до: 31.12.2024</p>
+                </div>
+                <!-- Конец примера карточки -->
+            </div>
+        </div>
+    
+        <!-- Список заказанных билетов -->
+        <div class="ticket-history">
+            <h2>Ваши билеты</h2>
+            <div class="ticket-cards">
+                <!-- Пример карточки билета -->
+                <div class="ticket-card">
+                    <h3 class="ticket-title">Аквапарк</h3>
+                    <p class="ticket-date">Дата: 25.11.2024</p>
+                    <p class="ticket-price">Стоимость: 4 500 ₽</p>
+                </div>
+                <div class="ticket-card">
+                    <h3 class="ticket-title">Детская зона</h3>
+                    <p class="ticket-date">Дата: 18.11.2024</p>
+                    <p class="ticket-price">Стоимость: 1 500 ₽</p>
+                </div>
+                <!-- Конец примера карточки -->
+            </div>
+        </div>
+
+        <!-- Форма для добавления отзыва -->
+        <div class="review-section">
+            <h2>Оставить отзыв</h2>
+            <form method="POST" action="{% url 'add_review' %}">
+                {% csrf_token %}
+                <div class="star-rating" id="star-rating">
+                    <label data-value="1">
+                        <input type="radio" name="rating" value="1">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <label data-value="2">
+                        <input type="radio" name="rating" value="2">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <label data-value="3">
+                        <input type="radio" name="rating" value="3">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <label data-value="4">
+                        <input type="radio" name="rating" value="4">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <label data-value="5">
+                        <input type="radio" name="rating" value="5">
+                        <i class="fas fa-star"></i>
+                    </label>
+                </div>
+                <textarea name="comment" placeholder="Напишите ваш отзыв..." rows="5" required></textarea>
+                <button type="submit" class="submit-button">Отправить</button>
+            </form>
+        </div>
+
+    </section>
+
+    
+    
+
+    {% include 'footer.html' %}
+</body>
+</html>

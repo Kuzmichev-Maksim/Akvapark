@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Тарифы</title>
+
+    <link rel="stylesheet" href="{% static 'css/tariffs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <section class="ticket-page">
+        <h1 class="page-title">Купить билет</h1>
+        {% comment %} <div class="day-selection">
+            <button class="day-button">Будни</button>
+            <button class="day-button">Выходные</button>
+        </div> {% endcomment %}
+        
+        <div class="ticket-cards">
+            <div class="ticket-card">
+                <div class="age-tag">14+</div>
+                <h3 class="ticket-title">Аквапарк, термы, спа</h3>
+                <img src="{% static 'images/tariffs/vsrosliy.png' %}" alt="Аквапарк" class="ticket-image">
+                <p class="ticket-description">Взрослые</p>
+                <p class="ticket-description2">от 150 см</p>
+                <div class="divider"></div>
+                <div class="price">3 700 ₽</div>
+                <a href="{% url 'tickets' %}">
+                    <button class="buy-button">Купить</button>
+                </a>
+            </div>
+
+            <div class="ticket-card">
+                <div class="age-tag">14+</div>
+                <h3 class="ticket-title">Аквапарк, <br>спа</h3>
+                <img src="{% static 'images/tariffs/vsrosliy.png' %}" alt="Аквапарк" class="ticket-image">
+                <p class="ticket-description">Взрослые</p>
+                <p class="ticket-description2">от 150 см</p>
+                <div class="divider"></div>
+                <div class="price">3 000 ₽</div>
+                <a href="{% url 'tickets' %}">
+                    <button class="buy-button">Купить</button>
+                </a>
+            </div>
+
+            <div class="ticket-card2 big-card">
+                <h3 class="ticket-title">Аквапарк + термы</h3>
+                <p class="ticket-description">Уникальное предложение для всей семьи!</p>
+                <div class="mini-cards">
+                    <div class="age-tag">SALE</div>
+                    <!-- Первая маленькая карточка -->
+                    <div class="ticket-card mini-card">
+                        <img src="{% static 'images/tariffs/vsrosliy.png' %}" alt="Аквапарк" class="ticket-image">
+                        <p class="ticket-description">Аквапарк</p>
+                        <div class="divider"></div>
+                        <div class="price">2 800 ₽</div>
+
+                    </div>
+                    <!-- Вторая маленькая карточка -->
+                    <div class="ticket-card mini-card">
+                        <img src="{% static 'images/tariffs/children.png' %}" alt="Детская зона" class="ticket-image">
+                        <p class="ticket-description">Дети</p>
+                        <div class="divider"></div>
+                        <div class="price">1 500 ₽</div>
+                    </div>
+                    <!-- Третья маленькая карточка -->
+                    <div class="ticket-card mini-card">
+                        <img src="{% static 'images/tariffs/babies.png' %}" alt="Зона малышей" class="ticket-image">
+                        <p class="ticket-description">Малыши</p>
+                        <div class="divider"></div>
+                        <div class="price">500 ₽</div>
+                    </div>
+                </div>
+                <br><br>
+                <a href="{% url 'tickets' %}">
+                    <button class="buy-button2">Купить</button>
+                </a>
+            </div>
+            
+            
+            <div class="ticket-card">
+                <div class="age-tag">14+</div>
+                <h3 class="ticket-title">Аквапарк<br><br></h3>
+                <img src="{% static 'images/tariffs/vsrosliy.png' %}" alt="Аквапарк" class="ticket-image">
+                <p class="ticket-description">Взрослые</p>
+                <p class="ticket-description2">от 150 см</p>
+                <div class="divider"></div>
+                <div class="price">2 500 ₽</div>
+                <a href="{% url 'tickets' %}">
+                    <button class="buy-button">Купить</button>
+                </a>
+            </div>
+
+            <div class="ticket-card">
+                <div class="age-tag">14+</div>
+                <h3 class="ticket-title">Термы, <br>спа</h3>
+                <img src="{% static 'images/tariffs/vsrosliy.png' %}" alt="Аквапарк" class="ticket-image">
+                <p class="ticket-description">Взрослые</p>
+                <p class="ticket-description2">от 150 см</p>
+                <div class="divider"></div>
+                <div class="price">3 000 ₽</div>
+                <a href="{% url 'tickets' %}">
+                    <button class="buy-button">Купить</button>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    {% include 'footer.html' %}
+</body>
+</html>
