@@ -1,0 +1,35 @@
+name: Deploy Application on Server
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          source env\bin\activate
+          cd akvapark
+          pip install -r requirements.txt
+          pip install flake8
+
+      - name: Run application
+        run: |
+          flake8 .
+          python manage.py runserver
