@@ -1,3 +1,4 @@
+from django.http import HttpResponseForbidden
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -9,3 +10,9 @@ def admin_view(request):
         messages.error(request, 'Доступ запрещён: недостаточно прав')
         return redirect('home')  # Перенаправляем на главную страницу
     return render(request, 'admin.html')  # Рендерим кастомную страницу админа
+
+@login_required
+def manage(request):
+    if not request.user.is_staff:
+        return HttpResponseForbidden("Доступ запрещен")
+    ...

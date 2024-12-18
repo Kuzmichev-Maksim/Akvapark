@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <link rel="stylesheet" href="{% static 'css/statistics.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    {% include 'header_admin.html' %}
+
+    <div class="chart-container">
+        <div class="chart-row">
+          <div class="chart-column">
+            <canvas id="ticketChart"></canvas>
+          </div>
+          <div class="chart-column">
+            <canvas id="visitDateChart"></canvas>
+          </div>
+        </div>
+      </div>
+    {% include 'footer.html' %}
+    <script>
+        // Данные для первой диаграммы (по типу услуги)
+        const ticketData = {
+          labels: {{ service_types|safe }},  // Названия типов услуг
+          datasets: [{
+            data: {{ ticket_counts|safe }},  // Количество билетов по каждому типу
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        };
+  
+        // Данные для второй диаграммы (по дате посещения)
+        const visitDateData = {
+          labels: {{ visit_dates|safe }},  // Даты посещения
+          datasets: [{
+            data: {{ visit_counts|safe }},  // Количество билетов по датам
+            backgroundColor: [
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)'
+            ],
+            borderColor: [
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+          }]
+        };
+  
+        // Настройка первой диаграммы
+        const ctx = document.getElementById('ticketChart').getContext('2d');
+        const ticketChart = new Chart(ctx, {
+          type: 'pie',  // Тип диаграммы - круговая
+          data: ticketData,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  font: {
+                    size: 16,
+                    family: 'cursive',  // Рукописный шрифт
+                  },
+                  color: '#23889f',
+                }
+              },
+              title: {
+                display: true,
+                text: 'Статистика по билетам (тип услуги)',
+                font: {
+                  size: 20,
+                  family: 'cursive',  // Рукописный шрифт
+                },
+                color: '#23889f',
+              }
+            }
+          }
+        });
+  
+        // Настройка второй диаграммы
+        const ctx2 = document.getElementById('visitDateChart').getContext('2d');
+        const visitDateChart = new Chart(ctx2, {
+          type: 'pie',  // Тип диаграммы - круговая
+          data: visitDateData,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  font: {
+                    size: 16,
+                    family: 'cursive',  // Рукописный шрифт
+                  },
+                  color: '#23889f',
+                }
+              },
+              title: {
+                display: true,
+                text: 'Статистика по билетам (дата посещения)',
+                font: {
+                  size: 20,
+                  family: 'cursive',  // Рукописный шрифт
+                },
+                color: '#23889f',
+              }
+            }
+          }
+        });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+[2024-12-17 20:56:35.686569] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17122024_205635.sql
+
+[2024-12-17 20:58:41.669796] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17122024_205841.sql
+
+[2024-12-17 20:59:37.646270] Ошибка при создании бекапа: Command '['C:\\Program Files\\PostgreSQL\\16\\bin\\pg_dump.exe', '-U', 'postgres', '-h', 'localhost', '-p', '', '-F', 'c', '-b', '-v', '-f', 'D:\\Colledge\\Akvapark\\akvapark\\backups\\backup_17.12.2024_20:59:37.sql', 'WaterParkDB']' returned non-zero exit status 1.
+pg_dump: error: could not open output file "D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_20:59:37.sql": No such file or directory
+
+[2024-12-17 20:59:44.239405] Ошибка при создании бекапа: Command '['C:\\Program Files\\PostgreSQL\\16\\bin\\pg_dump.exe', '-U', 'postgres', '-h', 'localhost', '-p', '', '-F', 'c', '-b', '-v', '-f', 'D:\\Colledge\\Akvapark\\akvapark\\backups\\backup_17.12.2024_20:59:44.sql', 'WaterParkDB']' returned non-zero exit status 1.
+pg_dump: error: could not open output file "D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_20:59:44.sql": No such file or directory
+
+[2024-12-17 20:59:44.951685] Ошибка при создании бекапа: Command '['C:\\Program Files\\PostgreSQL\\16\\bin\\pg_dump.exe', '-U', 'postgres', '-h', 'localhost', '-p', '', '-F', 'c', '-b', '-v', '-f', 'D:\\Colledge\\Akvapark\\akvapark\\backups\\backup_17.12.2024_20:59:44.sql', 'WaterParkDB']' returned non-zero exit status 1.
+pg_dump: error: could not open output file "D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_20:59:44.sql": No such file or directory
+
+[2024-12-17 21:00:02.411767] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_210002.sql
+
+[2024-12-17 21:00:27.057262] Ошибка при создании бекапа: Command '['C:\\Program Files\\PostgreSQL\\16\\bin\\pg_dump.exe', '-U', 'postgres', '-h', 'localhost', '-p', '', '-F', 'c', '-b', '-v', '-f', 'D:\\Colledge\\Akvapark\\akvapark\\backups\\backup_17.12.2024_21:00:27.sql', 'WaterParkDB']' returned non-zero exit status 1.
+pg_dump: error: could not open output file "D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_21:00:27.sql": No such file or directory
+
+[2024-12-17 21:00:36.715380] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_21:0036.sql
+
+[2024-12-17 21:01:05.493118] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_210105.sql
+
+[2024-12-17 22:04:01.386126] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_220401.sql
+
+[2024-12-17 22:04:18.382815] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_220418.sql
+
+[2024-12-17 22:04:42.237544] Бекап создан: D:\Colledge\Akvapark\akvapark\backups\backup_17.12.2024_220441.sql
+

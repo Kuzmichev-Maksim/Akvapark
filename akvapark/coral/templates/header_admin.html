@@ -1,0 +1,30 @@
+{% load static %}
+
+<header>
+  <div class="navbar">
+    <img src="{% static 'images/logo/circlelogo.png' %}" alt="Аквапарк" class="logo" />
+    <nav>
+      <ul>
+        <li>
+          <a href="/admin/" class="admin"><i class="fas fa-table"></i><span>Данные</span></a>
+        </li>
+        <li>
+          <a href="/admin/statistics/" class="statistics"><i class="fas fa-chart-line"></i><span>Статистика</span></a>
+        </li>
+        <li>
+          <a href="/admin/checks/" class="checks"><i class="fas fa-receipt"></i><span>Чеки</span></a>
+        </li>
+        <li>
+          <a href="/admin/users/" class="users"><i class="fas fa-users"></i><span>Пользователи</span></a>
+        </li>
+        <li>
+          <a href="/admin/logs/" class="logs"><i class="fas fa-file-alt"></i><span>Логи</span></a>
+        </li>
+        <form method="POST" action="{% url 'backup_db' %}">
+          {% csrf_token %}
+          <button type="submit" class="backup-button"><i class="fas fa-database"></i> Бекап базы данных</button>
+        </form>
+      </ul>
+    </nav>
+  </div>
+</header>

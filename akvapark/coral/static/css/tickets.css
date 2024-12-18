@@ -1,6 +1,6 @@
 /* Основные стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: cursive;
     margin: 0;
     padding: 0;
     background-color: #d6ecef;
@@ -89,9 +89,10 @@ select {
     font-family: cursive;
     appearance: none;
 }
+
 select option {
     padding: 10px;
-    color: #003b63; 
+    color: #003b63;
 }
 
 
@@ -131,12 +132,12 @@ input[type="date"] {
 }
 
 .visitor-quantity .quantity {
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 6px;
-        padding: 5px;
-        color: #333;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 5px;
+    color: #333;
 }
 
 .visitor-quantity button {
@@ -163,7 +164,8 @@ input[type="date"] {
 }
 
 .total-price p {
-    color: #22a8cb;}
+    color: #22a8cb;
+}
 
 .total-line {
     display: flex;
@@ -191,7 +193,7 @@ input[type="date"] {
     text-decoration: underline;
 }
 
-.price{
+.price {
     color: #22a8cb;
     font-weight: bold;
     font-size: 20px;
@@ -213,3 +215,87 @@ input[type="date"] {
     transition: background-color 0.3s;
 }
 
+
+
+
+/* Модальное окно */
+.modal {
+    font-family: cursive;
+    display: none; /* Скрыть модальное окно по умолчанию */
+    position: fixed;
+    z-index: 1; /* Обеспечиваем, чтобы окно было поверх других элементов */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    padding-top: 60px;
+    opacity: 0; /* Изначально скрыто */
+    transition: opacity 0.3s ease; /* Плавное исчезновение */
+  }
+  
+  /* Стили для содержимого модального окна */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Кнопка закрытия */
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-button:hover,
+  .close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Стили для формы ввода данных карты */
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  /* Кнопка подтверждения оплаты */
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #22a8cb;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: cursive;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .btn:hover {
+    background-color: #2094b0;
+  }
+  

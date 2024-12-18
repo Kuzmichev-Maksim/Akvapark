@@ -1,0 +1,65 @@
+/* Основные стили */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #bbede4;
+  /* Светло-голубой фон */
+  font-family: cursive;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Контейнер занимает всю высоту экрана */
+}
+
+.users-section {
+  flex: 1;
+  /* Контент растягивается, чтобы занять всю доступную высоту */
+  padding: 20px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  /* Белый фон таблицы */
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #ddd;
+  /* Серая рамка */
+  padding: 8px;
+  text-align: center;
+}
+
+.users-table th {
+  background-color: #f2f2f2;
+  /* Светло-серый фон для заголовков */
+}
+
+.users-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+  /* Светло-серый фон для четных строк */
+}
+
+.users-table tr:hover {
+  background-color: #e6e1e1;
+  /* Серый фон при наведении */
+}
+
+/* Футер */
+footer {
+  background-color: #333;
+  /* Темно-серый фон */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 97.4%;
+}

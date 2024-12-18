@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пользователи</title>
+    <link rel="stylesheet" href="{% static 'css/users.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+  </head>
+  <body>
+    <div class="page-container">
+      {% include 'header_admin.html' %}
+
+      <section class="users-section">
+        <h1 class="page-title">Пользователи</h1>
+
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Фамилия</th>
+              <th>Имя</th>
+              <th>Отчество</th>
+              <th>Дата рождения</th>
+              <th>Логин</th>
+              <th>Роль</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              <tr>
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.middle_name }}</td>
+                <td>{{ user.birth_date|date:'d E Y' }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.role_name }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      {% include 'footer.html' %}
+    </div>
+  </body>
+</html>

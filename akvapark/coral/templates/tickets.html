@@ -26,15 +26,13 @@
     </section>
 
     <section class="ticket-sale card">
-      <!-- Услуга -->
       <div class="ticket-service">
         <label for="service">Услуга</label>
-        
-        <select id="service" name="service" class="custom-select"> 
-          <option value="service1">Аквапарк + термы</option>
-          <option value="service2">Аквапарк + спа</option>
-          <option value="service4">Термы + спа</option>
-          <option value="service3">Аквапарк</option>
+
+        <select id="service" name="service" class="custom-select">
+          {% for service in services %}
+            <option value="{{ service.id }}" data-price="{{ service.price }}">{{ service.name }}</option>
+          {% endfor %}
         </select>
       </div>
 
@@ -42,9 +40,9 @@
       <div class="ticket-date">
         <label for="date">День</label>
         <div class="date-picker">
-            <input type="date" id="date" name="date" />
+          <input type="date" id="date" name="date" />
         </div>
-    </div>
+      </div>
 
       <!-- Посетители -->
       <div class="ticket-visitors">
@@ -53,7 +51,7 @@
         <div class="visitor-type">
           <label>Взрослые (от 150 см)</label>
           <div class="price-and-quantity">
-            <span class="price">2800 руб.</span>
+            <span class="price">3800 руб.</span>
             <div class="visitor-quantity">
               <button class="minus">-</button>
               <span class="quantity">0</span>
@@ -93,11 +91,47 @@
         <div class="total-line">
           <h3>ИТОГО:</h3>
           <p id="totalPrice">0 РУБ.</p>
-
         </div>
-        <button class="buy-button">Купить</button>
+        <button id="buyButton" class="buy-button" type="button">Купить</button>
       </div>
     </section>
+    
+   <!-- Модальное окно -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <!-- Кнопка закрытия -->
+    <span id="closeModal" class="close-button">&times;</span>
+    
+    <!-- Форма для ввода данных карты -->
+    <form id="paymentForm">
+      {% csrf_token %}
+      <input type="hidden" id="visitDate" name="visitDate" />
+      <input type="hidden" id="totalAmount" name="totalAmount" />
+      <input type="hidden" id="adultQuantity" name="adultQuantity" />
+      <input type="hidden" id="childQuantity" name="childQuantity" />
+      <input type="hidden" id="babyQuantity" name="babyQuantity" />
+      <input type="hidden" id="serviceId" name="serviceId" />
+      
+      <div class="input-group">
+        <label for="cardNumber">Номер карты</label>
+        <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required />
+      </div>
+      <div class="input-group">
+        <label for="expiryDate">Дата окончания</label>
+        <input type="text" id="expiryDate" name="expiryDate" maxlength="5" required placeholder="MM/YY" />
+      </div>
+      <div class="input-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" maxlength="3" required />
+      </div>
+      <div class="input-group">
+        <label for="cardholderName">Имя владельца</label>
+        <input type="text" id="cardholderName" name="cardholderName" required />
+      </div>
+      <button type="submit" class="btn">Подтвердить оплату</button>
+    </form>
+  </div>
+</div>
 
     {% include 'footer.html' %}
   </body>

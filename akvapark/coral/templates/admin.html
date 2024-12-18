@@ -1,22 +1,154 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Онлайн касса</title>
-
-    <link rel="stylesheet" href="{% static 'css/tickets.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <script src="{% static 'js/tickets.js' %}"></script>
-    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данные</title>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   </head>
   <body>
-    {% include 'header.html' %}
+    {% include 'header_admin.html' %}
+
+    <h1>Управление зонами и аттракционами</h1>
+
+    
+    <!-- Список зон -->
+    <h2>Зоны</h2>
+    <table id="zonesTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zone in zones %}
+            <tr>
+                <td>{{ zone.id }}</td>
+                <td>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <textarea type="text" name="zone_name_{{ zone.id }}"> {{ zone.name }}</textarea>
+                </td>
+                <td>
+                    <button type="submit" name="update_zone" value="{{ zone.id }}">Обновить</button>
+                    <button type="submit" name="delete_zone" value="{{ zone.id }}">Удалить</button>
+                </td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Добавление новой зоны -->
+    <h3>Добавить новую зону</h3>
+    <form method="POST" action="" class="add-zone-form">
+        {% csrf_token %}
+        <input type="text" name="new_zone_name" placeholder="Название новой зоны" class="input-field">
+        <button type="submit" name="add_zone" class="submit-button">Добавить</button>
+    </form>
+
+    <hr>
+
+    <!-- Список аттракционов -->
+    <h2>Аттракционы</h2>
+    <table id="attractionsTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Зона</th>
+                <th>URL картинки</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for attraction in attractions %}
+            <tr>
+                <td>{{ attraction.id }}</td>
+                <td>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <textarea type="text" name="attraction_name_{{ attraction.id }}">{{ attraction.name }}</textarea>
+                </td>
+                <td>
+                    <textarea name="attraction_description_{{ attraction.id }}">{{ attraction.description }}</textarea>
+                </td>
+                <td>
+                    <select name="attraction_zone_{{ attraction.id }}">
+                        {% for zone in zones %}
+                        <option value="{{ zone.id }}" {% if attraction.zone.id == zone.id %}selected{% endif %}>
+                            {{ zone.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <textarea type="text" name="attraction_image_url_{{ attraction.id }}"> {{ attraction.image_url }}</textarea>
+                </td>
+                <td>
+                    <button type="submit" name="update_attraction" value="{{ attraction.id }}">Обновить</button>
+                    <button type="submit" name="delete_attraction" value="{{ attraction.id }}">Удалить</button>
+                </td>
+                    </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Добавление нового аттракциона -->
+    <h3>Добавить новый аттракцион</h3>
+    <form method="POST" action="" class="add-attraction-form">
+        {% csrf_token %}
+        <input type="text" name="new_attraction_name" placeholder="Название" class="input-field">
+        <textarea name="new_attraction_description" placeholder="Описание" class="textarea-field"></textarea>
+        <input type="text" name="new_attraction_image_url" placeholder="URL картинки" class="input-field">
+        <select name="new_attraction_zone" class="select-field">
+            {% for zone in zones %}
+            <option value="{{ zone.id }}">{{ zone.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" name="add_attraction" class="submit-button">Добавить</button>
+    </form>
 
     {% include 'footer.html' %}
+
+    <script>
+        $(document).ready(function() {
+            // Инициализация таблицы зон
+            $('#zonesTable').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/ru.json', // Русский язык
+                },
+                paging: true, // Пагинация
+                searching: true, // Поиск
+                ordering: true, // Сортировка
+                info: true, // Информация о таблице
+                dom: 'lfrtip', // Позиция элементов: l - поиск, f - фильтр, r - загрузка, t - таблица, i - информация, p - пагинация
+            });
+        
+            // Инициализация таблицы аттракционов
+            $('#attractionsTable').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/ru.json', // Русский язык
+                },
+                paging: true, // Пагинация
+                searching: true, // Поиск
+                ordering: true, // Сортировка
+                info: true, // Информация о таблице
+                dom: 'lfrtip', // Позиция элементов
+            });
+        });
+    </script>
   </body>
 </html>

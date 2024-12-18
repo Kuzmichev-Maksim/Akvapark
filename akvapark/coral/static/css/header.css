@@ -63,3 +63,22 @@ nav ul li a:hover i {
 nav ul li a:hover {
     color: #8cd6f4; /* Цвет текста и иконки при наведении */
 }
+
+.backup-button {
+    background-color: #8cd6f4; /* Синий цвет */
+    color: #006994; /* Белый текст */
+    border: none; /* Убираем границу */
+    padding: 10px 20px; /* Отступы */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор в виде руки */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s ease; /* Плавный переход */
+}
+
+.backup-button:hover {
+    background-color: #8cd6f4; /* Темно-синий цвет при наведении */
+}
+
+.backup-button i {
+    margin-right: 5px; /* Отступ между иконкой и текстом */
+}

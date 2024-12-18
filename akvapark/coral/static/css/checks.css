@@ -1,0 +1,58 @@
+/* Основные стили */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #bbede4;
+  font-family: cursive;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Контейнер занимает всю высоту экрана */
+}
+
+.checks-section {
+  flex: 1;
+  /* Контент растягивается, чтобы занять всю доступную высоту */
+  padding: 20px;
+}
+
+.checks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.checks-table th,
+.checks-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.checks-table th {
+  background-color: #f2f2f2;
+}
+
+.checks-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.checks-table tr:hover {
+  background-color: #e6e1e1;
+}
+
+/* Футер */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 97.4%;
+}

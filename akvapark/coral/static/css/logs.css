@@ -1,0 +1,60 @@
+/* Основные стили */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #bbede4;
+  /* Светло-голубой фон */
+  font-family: cursive;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Контейнер занимает всю высоту экрана */
+}
+
+/* logs.css */
+.logs-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.logs-table th,
+.logs-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.logs-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+.logs-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.logs-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Футер */
+footer {
+  background-color: #333;
+  /* Темно-серый фон */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 97.4%;
+}

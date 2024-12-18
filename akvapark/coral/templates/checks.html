@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Чеки</title>
+    <link rel="stylesheet" href="{% static 'css/checks.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+  </head>
+  <body>
+    <div class="page-container">
+      {% include 'header_admin.html' %}
+
+      <section class="checks-section">
+        <h1 class="page-title">Чеки</h1>
+
+        <table class="checks-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Сумма</th>
+              <th>Дата оплаты</th>
+              <th>Способ оплаты</th>
+              <th>Услуга</th>
+              {% comment %} <th>Цена билета</th>
+              <th>Дата посещения</th>
+              <th>Посетитель</th> {% endcomment %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for receipt in receipts %}
+              <tr>
+                <td>{{ receipt.receipt_id }}</td>
+                <td>{{ receipt.amount }} руб.</td>
+                <td>{{ receipt.payment_date|date:'d E Y H:i' }}</td>
+                <td>{{ receipt.payment_method_name }}</td>
+                <td>{{ receipt.service_type_name }}</td>
+                {% comment %} <td>{{ receipt.ticket_price }} руб.</td>
+                <td>{{ receipt.ticket_date|date:'d E Y' }}</td>
+                <td>{{ receipt.visitor_name }}</td> {% endcomment %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% comment %} <h1>Импорт и экспорт чеков из CSV</h1>
+        <a href="{% url 'export_receipts' %}" class="btn btn-primary">Экспорт чеков в CSV</a>
+        <br /><br />
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Импортировать</button>
+        </form> {% endcomment %}
+        
+      </section>
+
+      {% include 'footer.html' %}
+    </div>
+  </body>
+</html>

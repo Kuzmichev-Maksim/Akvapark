@@ -1,0 +1,28 @@
+/* Основные стили */
+body {
+    font-family: cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #bbede4;
+    padding-top: 80px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1040px;
+    margin: 50px auto;
+    width: 100%;
+}
+
+.chart-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.chart-column {
+    flex: 1;
+    margin: 0 10px;
+}
