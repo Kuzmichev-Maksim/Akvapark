@@ -77,14 +77,13 @@ WSGI_APPLICATION = 'akvapark.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'WaterParkDB',                       
-        'USER': 'postgres',                         
-        'PASSWORD': '123',                         
-        'HOST': 'localhost',                         
-        'PORT': '',                           
+        'NAME': 'WaterParkDB',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '',
     },
 }
-
 
 
 # Password validation

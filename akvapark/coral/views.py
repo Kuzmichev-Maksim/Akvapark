@@ -10,15 +10,12 @@ from .models import Attraction, Logs, PaymentMethod, Receipt, ServiceType, Ticke
 from django.db.models import Count
 from django.core.management import call_command
 from .utils import log_action
-
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db import connection
 from django.contrib.auth.hashers import make_password  # Импортируем функцию для хеширования пароля
 from .forms import RegistrationForm
 from .models import Role
-from .utils import log_action
 
 def regis(request):
     if request.method == 'POST':
@@ -34,7 +31,6 @@ def regis(request):
                 password = form.cleaned_data['password']
                 role = form.cleaned_data.get('role', Role.objects.get(id=2))  # Получаем объект Role, а не id
 
-                # Хешируем пароль
                 hashed_password = make_password(password)  # Создаем хешированный пароль
 
                 # Вызов процедуры register_user

@@ -168,7 +168,6 @@ class ViewReceipts(models.Model):
     def __str__(self):
         return f"Чек на {self.amount} руб. за {self.service_type_name} от {self.payment_date}"
     
-
 class ViewUsers(models.Model):
     user_id = models.IntegerField(primary_key=True)
     last_name = models.CharField(max_length=150)
