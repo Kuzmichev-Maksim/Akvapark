@@ -3,19 +3,14 @@ from django.db import connection
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, JsonResponse
-from django.contrib import messages
 from django.views import View
 from .forms import ImportReceiptsForm, RegistrationForm, ZoneForm
 from .models import Attraction, Logs, PaymentMethod, Receipt, ServiceType, Ticket, User, Role, ViewReceipts, ViewUsers, Zone
 from django.db.models import Count
 from django.core.management import call_command
 from .utils import log_action
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.db import connection
 from django.contrib.auth.hashers import make_password  # Импортируем функцию для хеширования пароля
-from .forms import RegistrationForm
-from .models import Role
 
 def regis(request):
     if request.method == 'POST':
@@ -119,23 +114,20 @@ def add_review(request):
 
 def login_view(request):
     if request.method == 'POST':
-        login_value = request.POST.get('login')  # Логин пользователя
-        password = request.POST.get('password')  # Пароль пользователя
+        login_value = request.POST.get('login') 
+        password = request.POST.get('password')  
 
-        # Аутентификация пользователя с использованием логина
         user = authenticate(request, username=login_value, password=password)
 
         if user is not None:
             login(request, user)
-
-           
-            # Проверка роли для перенаправления на кастомные страницы
-            if user.role.name == 'ADMIN':  # Если роль администратора
-                return redirect('manage')  # Перенаправление на кастомную страницу администратора
+        
+            if user.role.name == 'ADMIN':
+                return redirect('manage')
             else:
 
                 log_action(f"Пользователь {user.login} успешно вошел в систему")
-                return redirect('home')  # Обычные пользователи перенаправляются на главную страницу
+                return redirect('home')
         else:
             messages.error(request, 'Неверный логин или пароль')
             log_action(f"Ошибка входа: неверный логин или пароль")
