@@ -18,7 +18,7 @@ jobs:
 
       - name: Set version python
         uses: actions/setup-python@v2
-            with: python-version: '3.12.8'
+          with: python-version: '3.12.8'
 
       - name: Instal depensice
         run: | 
