@@ -1,31 +1,30 @@
-name: Deploy Application on Server
+name: Depensive
 
 on:
-  push:
-    branches:
+  branches:
+    push:
       - main
-  pull_request:
-    branches:
+  branches:
+    pull_request:
       - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    steps:
-    
+
+  steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
+      - name: Set version python
+          uses: actions/setup-python@v2
+            with: python-version: '3.12.8'
 
-      - name: Install dependencies
-        run: |
-          pip3 install flake8
+      - name: Instal depensice
+        run: | 
+          echo "Go v club!"
+          pip install flake8 
 
-      - name: Run application
-        run: |
-          flake8 .
+      - name: run application
+          run: | 
+            flake8 . 
