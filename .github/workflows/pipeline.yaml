@@ -14,17 +14,17 @@ jobs:
 
   steps:
       - name: Checkout repository
-          uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Set version python
-          uses: actions/setup-python@v2
+        uses: actions/setup-python@v2
             with: python-version: '3.12.8'
 
       - name: Instal depensice
-          run: | 
-            echo "Go v club!"
-            pip install flake8 
+        run: | 
+          echo "Go v club!"
+          pip install flake8 
 
-      - name: run application
-          run: | 
-            flake8 . 
+      - name: Run application
+        run: | 
+          flake8 . 
